@@ -5,6 +5,7 @@ import os, json
 from django.core.exceptions import ImproperlyConfigured
 
 BASE_DIR = Path(__file__).resolve().parent.parent
+#KOBOT_DIR = Path(__file__).resolve().parent.parent.parent
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -35,13 +36,13 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "backtest",
-
+    
     "rest_framework",
-    "corsheaders"
+    "corsheaders"   # CORS 추가
 ]
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',    # CORS 추가
     'django.middleware.common.CommonMiddleware',
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
@@ -52,11 +53,15 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
+# CORS 관련 추가
 CORS_ORIGIN_WHITELIST = (
     'http://127.0.0.1:8000', 'http://localhost:3000')
+
 CORS_ALLOW_CREDENTIALS = True
 
 ROOT_URLCONF = "config.urls"
+
+# django templates
 
 TEMPLATES = [
     {
@@ -73,6 +78,13 @@ TEMPLATES = [
         },
     },
 ]
+
+
+
+# # 경로 추가
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, 'frontend', 'build', 'static'),
+# ]
 
 WSGI_APPLICATION = "config.wsgi.application"
 
@@ -103,7 +115,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = "UTC"
+TIME_ZONE = "Asia/Seoul"
 
 USE_I18N = True
 
