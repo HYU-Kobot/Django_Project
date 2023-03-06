@@ -1,9 +1,12 @@
 from django.db import models
 
 class Parameter(models.Model):
-	params = models.IntegerField()
+	period_buy = models.CharField(max_length=100)
+	standardDeviation_buy = models.CharField(max_length=100, null=True, default='')
+	period_sell = models.CharField(max_length=100, null=True, default='')
+	standardDeviation_sell = models.CharField(max_length=100, null=True, default='')
 
-	def __str__(self):
-		return self.name
+	def __int__(self):
+		return self.id
 
 # Create your models here.
