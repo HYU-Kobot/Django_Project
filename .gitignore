@@ -1,2 +1,5 @@
 secret.json
 my_settings.py
+.DS_Store
+.gradle
+.idea
